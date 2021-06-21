@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: dynatrace-oneagent
+spec:
+  selector:
+    matchLabels:
+      name: dynatrace-oneagent
+  template:
+    metadata:
+      labels:
+        name: dynatrace-oneagent
+    spec:
+      hostPID: true
+      hostIPC: true
+      hostNetwork: true
+      nodeSelector:
+        beta.kubernetes.io/os: linux
+      volumes:
+      - name: host-root
+        hostPath:
+          path: /
+      containers:
+      - name: dynatrace-oneagent
+        image: dynatrace/oneagent
+        env:
+        - name: ONEAGENT_INSTALLER_SCRIPT_URL
+          value: your_URL
+        - name: ONEAGENT_INSTALLER_SKIP_CERT_CHECK
+          value: "false"
+        - name: ONEAGENT_INSTALLER_DOWNLOAD_TOKEN
+          value: "<API-Token>"
+        resources:
+          limits:
+            cpu: 300m
+            memory: 200Mi
+          requests:
+            cpu: 100m
+            memory: 200Mi
+        args:
+        - "--set-network-zone=<your.network.zone>"
+        volumeMounts:
+        - name: host-root
+          mountPath: /mnt/root
+        securityContext:
+          privileged: true
+
