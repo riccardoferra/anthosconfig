@@ -76,5 +76,4 @@ spec:
     targetPort: 9990
   selector:
     app: eap-app-prod
-
 ---
