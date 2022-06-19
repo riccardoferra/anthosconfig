@@ -1,8 +1,8 @@
 kind: Cluster
 apiVersion: clusterregistry.k8s.io/v1alpha1
 metadata:
-  name: eks-aws
+  name: aws-cluster-ei
   labels:
     environment: poc
-    type: eks
-
+    location: useast
+    type: anthos
