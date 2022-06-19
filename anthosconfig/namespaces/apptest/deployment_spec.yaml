@@ -25,6 +25,7 @@ spec:
         migrate-for-anthos-optimization: "true"
         migrate-for-anthos-version: v1.11.1
     spec:
+      serviceAccountName: appsa
       containers:
       - env:
         - name: HC_V2K_SERVICE_MANAGER
