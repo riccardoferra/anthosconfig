@@ -1,1 +1,1 @@
-# anthosconfig Repository
+# AnthosConfig Repository
