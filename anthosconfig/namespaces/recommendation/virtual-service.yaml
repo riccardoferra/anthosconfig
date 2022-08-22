@@ -7,9 +7,10 @@ spec:
   - recommendationservice.recommendation.svc.cluster.local
   http:
   - fault:
-      abort:
-        percent: 80
-        httpStatus: 400
+      delay:
+        percentage:
+          value: 100.0
+        fixedDelay: 10s
     route:
     - destination:
         host: recommendationservice.recommendation.svc.cluster.local
