@@ -8,8 +8,9 @@ spec:
   http:
   - fault:
       abort:
-        percent: 90
-        httpStatus: 400
+        httpStatus: 500
+        percentage:
+          value: 100
     route:
     - destination:
         host: recommendationservice.recommendation.svc.cluster.local
