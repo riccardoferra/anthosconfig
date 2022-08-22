@@ -10,7 +10,7 @@ spec:
       abort:
         httpStatus: 500
         percentage:
-          value: 100
+          value: 0
     route:
     - destination:
         host: recommendationservice.recommendation.svc.cluster.local
