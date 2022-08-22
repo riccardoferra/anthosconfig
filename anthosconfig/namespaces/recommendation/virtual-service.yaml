@@ -10,7 +10,7 @@ spec:
       delay:
         percentage:
           value: 100.0
-        fixedDelay: 10s
+        fixedDelay: 20s
     route:
     - destination:
         host: recommendationservice.recommendation.svc.cluster.local
